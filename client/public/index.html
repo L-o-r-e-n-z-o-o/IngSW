@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <title>Pipeline di modifica di file .txt</title>
+<body>
+  <header>
+    <h1>Pipeline di modifica file .txt</h1>
+</header>
+
+<div style="display: flex; gap: 10px;">
+  <form id="uploadForm">
+    <input type="file" id="fileUpload" name="actionUpload" accept=".txt">
+    <button type="submit">Upload File .txt</button>
+  </form>
+
+  <form id="downloadForm">
+    <button type="submit" name="actionDownload">Download File .txt</button>
+  </form>
+</div>
+
+  <div style="display: flex; gap: 10px;">
+  <form id="previewForm">
+    <input type="submit" name="actionPreview" value="Preview contenuti file">
+  </form>
+
+  <form id="convertToUppercaseForm">
+    <input type="submit" name="actionConvertToUppercase" value="Converti contenuti in uppercase">
+  </form>
+
+  <form id="appendStringForm">
+    <input type="submit" name="actionAppendString" value="Accoda la stringa STRINGA">
+  </form>
+  </div>
+
+  <div id="result"></div>
+
+  <script>
+  // Evento uploadForm
+  document.getElementById('uploadForm').addEventListener('submit', function(event) 
+  {
+    event.preventDefault(); // Prevent the default form submission
+    
+    // Prepare the form data
+    const formData = new FormData(this);
+      
+    // Send the form data via fetch to your PHP endpoint
+    fetch('http://localhost:8000', {
+      method: 'POST',
+      body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+      // Display the server's response in the result container
+      document.getElementById('result').innerHTML = data;
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+  });
+
+  // Evento downloadForm
+  document.getElementById('downloadForm').addEventListener('submit', function(event) 
+  {
+    event.preventDefault(); // Prevent the default form submission
+    
+    // Prepare the form data
+    let formData = new FormData();
+    formData.append("actionDownload", "");
+    
+    // Send the form data via fetch to your PHP endpoint
+    fetch('http://localhost:8000', {
+      method: 'POST',
+      body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+      // Display the server's response in the result container
+      document.getElementById('result').innerHTML = data;
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+  });
+
+  // Evento previewForm
+  document.getElementById('previewForm').addEventListener('submit', function(event) 
+  {
+    event.preventDefault(); // Prevent the default form submission
+    
+    // Prepare the form data
+    let formData = new FormData();
+    formData.append("actionPreview", "");
+    
+    // Send the form data via fetch to your PHP endpoint
+    fetch('http://localhost:8000', {
+      method: 'POST',
+      body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+      // Display the server's response in the result container
+      document.getElementById('result').innerHTML = data;
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+  });
+
+  // Evento convertToUppercaseForm
+  document.getElementById('convertToUppercaseForm').addEventListener('submit', function(event) 
+  {
+    event.preventDefault(); // Prevent the default form submission
+    
+    let formData = new FormData();
+    formData.append("actionConvertToUppercase", "");
+    
+    // Send the form data via fetch to your PHP endpoint
+    fetch('http://localhost:8000', 
+    {
+      method: 'POST',
+      body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+      // Display the server's response in the result container
+      document.getElementById('result').innerHTML = data;
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+  });
+
+  // Evento appendStringForm
+  document.getElementById('appendStringForm').addEventListener('submit', function(event) 
+  {
+    event.preventDefault(); // Prevent the default form submission
+    
+    let formData = new FormData();
+    formData.append("actionAppendString", "");
+    
+    // Send the form data via fetch to your PHP endpoint
+    fetch('http://localhost:8000', 
+    {
+      method: 'POST',
+      body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+      // Display the server's response in the result container
+      document.getElementById('result').innerHTML = data;
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+  });
+</script>
+</body>
+</html>

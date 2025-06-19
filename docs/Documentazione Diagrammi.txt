@@ -1,0 +1,15 @@
+Documentazione:
+    Diagrammi UML:
+        X - Diagramma dei casi d’uso.
+        Diagramma delle classi (lato server e client).
+        X -Diagramma di sequenza per le interazioni client-server.
+        Diagramma di attività per il flusso delle pipeline.
+        Diagramma architettura software
+        X - Diagramma componenti fisiche (=container)
+        X - Diagramma delle componenti
+        Diagramma dei moduli
+        X - Diagramma della struttura del progetto (=le directory)
+        Individuazione del design pattern
+        X - Specifiche tecniche dell’architettura MVP.
+        Definizione delle API RESTful con endpoint e payload.
+
